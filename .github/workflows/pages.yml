@@ -2,9 +2,7 @@ name: Données et démo (GitHub Pages)
 on:
   push:
     branches: [main]
-  schedule:
-    - cron: "17 9 * * 1"   # chaque lundi : nouvelle collecte des mises en garde de l'AMF
-  workflow_dispatch:
+  workflow_dispatch:   # essai manuel de collecte depuis GitHub (le site de l'AMF peut la refuser)
 
 permissions:
   contents: write
@@ -24,13 +22,18 @@ jobs:
         with:
           python-version: "3.12"
       - name: Collecte complète des mises en garde de l'AMF
+        id: maj
         if: github.event_name != 'push'
+        continue-on-error: true   # refus du site (403) : on garde les données déjà publiées
         run: python -m verifcrypto maj
+      - name: Collecte refusée, données conservées
+        if: steps.maj.outcome == 'failure'
+        run: echo "::warning::La collecte a été refusée par le site de l'AMF ; la démo garde les données existantes. Lancez « python -m verifcrypto maj » depuis votre ordinateur."
       - name: Tests sur les nouvelles données
-        if: github.event_name != 'push'
+        if: steps.maj.outcome == 'success'
         run: python -m unittest discover -s tests
       - name: Enregistrer les données dans le dépôt
-        if: github.event_name != 'push'
+        if: steps.maj.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

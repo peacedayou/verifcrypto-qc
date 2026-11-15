@@ -35,16 +35,21 @@ Aucune bibliothèque à installer : Python 3.10 ou plus récent.
 
 | Source | Utilisation | Mise à jour |
 | --- | --- | --- |
-| [AMF – Mises en garde](https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde) | Comparaison des sites et des noms (y compris les « autres noms d'affaires ») | Chaque lundi, par GitHub Actions |
+| [AMF – Mises en garde](https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde) | Comparaison des sites et des noms (y compris les « autres noms d'affaires ») | `python -m verifcrypto maj`, puis commit du fichier |
 | [Registre de l'AMF](https://lautorite.qc.ca/grand-public/registres/registre-des-entreprises-et-des-individus-autorises-a-exercer/) | Lien pour vérifier une inscription au Québec | — |
 | [CheckFirst (ACVM)](https://www.checkfirst.ca/) | Lien pour vérifier une inscription au Canada | — |
 | [Chainabuse](https://www.chainabuse.com/) | Lien vers les signalements publics d'adresses | — |
 
 Le dépôt contient au départ un **échantillon réel** des 20 mises en garde les plus récentes
-(relevé du 15 novembre 2026). La tâche planifiée `Données et démo` le remplace chaque semaine
-par la liste complète (environ 1 400 fiches), avec une pause entre chaque requête pour ne pas
-surcharger le site de l'AMF. Si la structure des pages change, la collecte échoue au lieu
-de publier des données vides.
+(relevé du 15 novembre 2026). Pour obtenir la liste complète (environ 1 400 fiches), lancez
+`python -m verifcrypto maj` depuis votre ordinateur, puis poussez `data/amf_mises_en_garde.json` :
+la démo se met à jour toute seule. La collecte fait une pause entre chaque requête pour ne pas
+surcharger le site de l'AMF, et elle échoue au lieu de publier des données vides si la structure
+des pages change.
+
+Le site de l'AMF refuse les requêtes venant des serveurs de GitHub (erreur 403). Le projet
+respecte ce refus : il ne contourne pas la protection, et la démo garde alors les données déjà
+publiées.
 
 ## Développement
 

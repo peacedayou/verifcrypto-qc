@@ -1,0 +1,26 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+      - name: Tests Python (sans réseau)
+        run: python -m unittest discover -s tests -v
+      - name: Tests de la page Web (mêmes vecteurs)
+        run: node --test tests/verif.test.mjs
+      - name: Exemple de rapport
+        run: python -m verifcrypto "https://my.spxglobal.net"

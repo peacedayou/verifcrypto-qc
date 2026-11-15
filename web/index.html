@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VérifCrypto QC – vérifier avant d'investir</title>
+<meta name="description" content="Vérifiez en français un site, une adresse de portefeuille ou une entreprise contre les mises en garde de l'AMF. Faits sourcés seulement, aucun conseil.">
+<style>
+  :root { --bg:#f6f4ef; --ink:#1d2433; --muted:#5b6475; --line:#d9d4c7; --card:#fffdf8; --accent:#0b5c78; --warn:#9a3412; --warn-bg:#fff1e8; --ok-bg:#eef6f1; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#14171d; --ink:#e8e6e1; --muted:#a3a9b5; --line:#2c323d; --card:#1b1f27; --accent:#6cc3df; --warn:#fdba8c; --warn-bg:#3a2216; --ok-bg:#16291f; } }
+  * { box-sizing: border-box; }
+  body { margin:0; font:17px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background:var(--bg); color:var(--ink); }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 20px 64px; }
+  h1 { font-size: clamp(28px, 5vw, 40px); line-height:1.1; margin:0 0 8px; letter-spacing:-0.02em; }
+  h1 span { color: var(--accent); }
+  .lead { color: var(--muted); margin: 0 0 28px; max-width: 60ch; }
+  form { display:flex; gap:10px; flex-wrap:wrap; }
+  input { flex:1 1 320px; font:inherit; padding:14px 16px; border:2px solid var(--line); border-radius:12px; background:var(--card); color:var(--ink); }
+  input:focus { outline:none; border-color: var(--accent); }
+  button { font:inherit; font-weight:600; padding:14px 22px; border:0; border-radius:12px; background:var(--accent); color:var(--bg); cursor:pointer; }
+  .exemples { font-size:14px; color:var(--muted); margin:10px 0 0; }
+  .exemples button { background:none; color:var(--accent); padding:0 4px; font-weight:500; text-decoration:underline; font-size:14px; }
+  #resultat { margin-top: 32px; }
+  .carte { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px 22px; margin-bottom:16px; }
+  .carte h2 { font-size: 18px; margin: 0 0 6px; }
+  .meta { color: var(--muted); font-size: 14px; }
+  .trouve { border-left: 5px solid var(--warn); background: var(--warn-bg); }
+  .rien { border-left: 5px solid var(--accent); background: var(--ok-bg); }
+  .badge { display:inline-block; font-size:12px; font-weight:600; padding:2px 8px; border-radius:999px; border:1px solid var(--line); margin:4px 6px 0 0; }
+  ul.liens { padding-left: 20px; margin: 6px 0 0; }
+  a { color: var(--accent); }
+  .avert { font-size: 14px; color: var(--muted); border-top:1px solid var(--line); padding-top:16px; margin-top:28px; }
+  .erreur { color: var(--warn); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Vérif<span>Crypto</span> QC</h1>
+  <p class="lead">Avant d'envoyer de l'argent : vérifiez un site, une adresse de portefeuille ou le nom d'une entreprise. Vous obtenez uniquement des faits publiés par des autorités, avec leur source et leur date.</p>
+
+  <form id="f" autocomplete="off">
+    <label for="q" class="visually-hidden" style="position:absolute;left:-9999px">Site, adresse ou nom</label>
+    <input id="q" name="q" placeholder="ex. exemple.com, 0x…, Nom de l'entreprise" required>
+    <button type="submit">Vérifier</button>
+  </form>
+  <p class="exemples">Essayer : <button type="button" data-q="https://my.spxglobal.net">un site</button> <button type="button" data-q="Gold Pride Holdings">un nom</button> <button type="button" data-q="0x52908400098527886E0F7030069857D2E4169EE7">une adresse</button> <button type="button" data-q="Crypto Recovery Services">une offre de récupération</button></p>
+
+  <div id="resultat" aria-live="polite"></div>
+
+  <p class="avert" id="avert">VérifCrypto QC rapporte ce que disent des sources publiques, à la date indiquée. Ce n'est ni un avis juridique ni un conseil financier. L'absence d'une entreprise dans ces listes ne prouve pas qu'elle est autorisée ou fiable. Code source : <a href="https://github.com/peacedayou/verifcrypto-qc">github.com/peacedayou/verifcrypto-qc</a>.</p>
+</main>
+<script type="module">
+import { analyser, chercher, evoqueRecuperation } from "./verif.js";
+
+const MOIS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+const dateFr = (iso) => { const [a,m,j] = iso.split("-"); return `${+j === 1 ? "1er" : +j} ${MOIS[+m-1]} ${a}`; };
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+const GENRES = { site:"site Web", adresse_evm:"adresse de portefeuille (Ethereum ou compatible)", adresse_btc:"adresse de portefeuille (Bitcoin)", nom:"nom d'entreprise ou de personne" };
+const LIENS = {
+  liste: ["Liste complète des mises en garde (AMF)", "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde"],
+  registre: ["Registre des entreprises et des individus autorisés à exercer (AMF)", "https://lautorite.qc.ca/grand-public/registres/registre-des-entreprises-et-des-individus-autorises-a-exercer/"],
+  checkfirst: ["Vérifier l'inscription au Canada (ACVM, CheckFirst)", "https://www.checkfirst.ca/"],
+  chainabuse: ["Signalements publics d'adresses (Chainabuse) : chercher l'adresse", "https://www.chainabuse.com/"],
+  fraude: ["Fraudes liées aux cryptoactifs (AMF, page en anglais)", "https://lautorite.qc.ca/en/general-public/fraud-prevention/types-of-fraud/cryptoasset-fraud"],
+};
+
+const donnees = await (await fetch("./amf_mises_en_garde.json")).json();
+const out = document.getElementById("resultat");
+
+function afficher(texte) {
+  let req;
+  try { req = analyser(texte); } catch (e) { out.innerHTML = `<p class="erreur">${esc(e.message)}</p>`; return; }
+  const parAdresse = req.genre.startsWith("adresse");
+  const constats = parAdresse ? [] : chercher(req, donnees);
+  const portee = donnees.complet ? "liste complète" : `échantillon de ${donnees.mises_en_garde.length} fiches`;
+  let h = `<div class="carte"><div class="meta">Reconnu comme : ${GENRES[req.genre]}</div><strong>${esc(req.valeur)}</strong></div>`;
+  if (parAdresse) {
+    h += `<div class="carte"><p>Les mises en garde de l'AMF visent des sites et des entreprises, pas des adresses de portefeuille. Consultez les signalements publics ci-dessous.</p></div>`;
+  } else if (constats.length) {
+    for (const c of constats) {
+      h += `<div class="carte trouve"><h2>${esc(c.titre)}</h2><div class="meta">Publiée le ${dateFr(c.date)} · ${esc(c.correspondance)}</div>`
+        + c.categories.map((x) => `<span class="badge">${esc(x)}</span>`).join("")
+        + `<p><a href="${esc(c.url)}" target="_blank" rel="noopener">Lire la fiche officielle de l'AMF</a></p></div>`;
+    }
+  } else {
+    h += `<div class="carte rien"><h2>Aucune mention dans la source consultée</h2><p class="meta">${esc(donnees.source)} (${portee}, données du ${dateFr(donnees.collecte)}). Cela ne prouve pas que l'entreprise est autorisée : vérifiez son inscription avec les liens ci-dessous.</p></div>`;
+  }
+  if (evoqueRecuperation(req.brut)) {
+    h += `<div class="carte trouve"><h2>À savoir</h2><p>Votre recherche évoque la récupération de fonds. L'AMF a publié des mises en garde contre des services de « récupération », par exemple <a href="https://lautorite.qc.ca/en/general-public/media-centre/investor-warnings/investor-warnings-sheet/bnb-service-de-recuperation" target="_blank" rel="noopener">BNB (Service de récupération)</a>, publiée le 26 juillet 2021.</p></div>`;
+  }
+  const liens = parAdresse ? [LIENS.liste, LIENS.chainabuse, LIENS.fraude] : [LIENS.liste, LIENS.registre, LIENS.checkfirst, LIENS.fraude];
+  h += `<div class="carte"><h2>Pour aller plus loin</h2><ul class="liens">${liens.map(([t,u]) => `<li><a href="${u}" target="_blank" rel="noopener">${t}</a></li>`).join("")}</ul></div>`;
+  out.innerHTML = h;
+}
+
+document.getElementById("f").addEventListener("submit", (e) => { e.preventDefault(); afficher(document.getElementById("q").value); });
+document.querySelectorAll("[data-q]").forEach((b) => b.addEventListener("click", () => { document.getElementById("q").value = b.dataset.q; afficher(b.dataset.q); }));
+</script>
+</body>
+</html>

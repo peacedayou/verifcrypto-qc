@@ -1,0 +1,315 @@
+{
+ "source": "Autorité des marchés financiers (Québec) – Mises en garde",
+ "source_url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde",
+ "collecte": "2026-11-15",
+ "complet": false,
+ "note": "Échantillon initial : les 20 mises en garde les plus récentes. La tâche planifiée « Mise à jour des données » remplace ce fichier par la liste complète.",
+ "mises_en_garde": [
+  {
+   "slug": "f24group",
+   "nom": "F24Group",
+   "date_publication": "2026-11-06",
+   "categories": [
+    "Cryptoactifs",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "f24group.com"
+   ],
+   "autres_noms": [
+    "GroupeF24"
+   ],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/f24group"
+  },
+  {
+   "slug": "royalispower",
+   "nom": "RoyalisPower",
+   "date_publication": "2026-11-06",
+   "categories": [
+    "Cryptoactifs",
+    "Forex",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "royalispower.com",
+    "tplatform-royalispower.com/d/trading"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/royalispower"
+  },
+  {
+   "slug": "ava-investment",
+   "nom": "Ava Investment",
+   "date_publication": "2026-11-06",
+   "categories": [
+    "Cryptoactifs",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "ava-investlimited.com"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/ava-investment"
+  },
+  {
+   "slug": "smart-chain-solutions",
+   "nom": "Smart Chain Solutions",
+   "date_publication": "2026-11-06",
+   "categories": [
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "smartchainsolutions.net"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/smart-chain-solutions"
+  },
+  {
+   "slug": "omnitradexai",
+   "nom": "OmniTradeXAI",
+   "date_publication": "2026-11-06",
+   "categories": [
+    "Cryptoactifs",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "omnitradexai.com"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/omnitradexai"
+  },
+  {
+   "slug": "ositrustees",
+   "nom": "Ositrustees",
+   "date_publication": "2026-11-06",
+   "categories": [
+    "Cryptoactifs",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "ositrustees.com"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/ositrustees"
+  },
+  {
+   "slug": "goldman-markets",
+   "nom": "Goldman Markets",
+   "date_publication": "2026-11-06",
+   "categories": [
+    "Cryptoactifs",
+    "Forex",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "pro-gmarkets.com"
+   ],
+   "autres_noms": [
+    "GM Markets"
+   ],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/goldman-markets"
+  },
+  {
+   "slug": "lky",
+   "nom": "LKY",
+   "date_publication": "2026-11-06",
+   "categories": [
+    "Cryptoactifs",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "Lkyexch.com"
+   ],
+   "autres_noms": [
+    "Lkyexch"
+   ],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/lky"
+  },
+  {
+   "slug": "bydfiaz",
+   "nom": "Bydfiaz",
+   "date_publication": "2026-10-30",
+   "categories": [
+    "Cryptoactifs",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "bydfiaz.com"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/bydfiaz"
+  },
+  {
+   "slug": "mininge-digital-mining-ltd",
+   "nom": "MiningE Digital Mining Ltd.",
+   "date_publication": "2026-10-30",
+   "categories": [
+    "Cryptoactifs",
+    "Forex",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "mininge.com"
+   ],
+   "autres_noms": [
+    "Mininge"
+   ],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/mininge-digital-mining-ltd"
+  },
+  {
+   "slug": "gold-pride-holdings",
+   "nom": "Gold Pride Holdings",
+   "date_publication": "2026-10-22",
+   "categories": [
+    "Cryptoactifs",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "goldprideholdings.net",
+    "goldprideholdings.com,"
+   ],
+   "autres_noms": [
+    "goldprideholdings"
+   ],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/gold-pride-holdings"
+  },
+  {
+   "slug": "spx-global-future-holding-lp",
+   "nom": "SPX Global Future Holding LP",
+   "date_publication": "2026-10-22",
+   "categories": [
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "my.spxglobal.net"
+   ],
+   "autres_noms": [
+    "SPXGlobal"
+   ],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/spx-global-future-holding-lp"
+  },
+  {
+   "slug": "fxsaplatform",
+   "nom": "fxsaplatform",
+   "date_publication": "2026-10-22",
+   "categories": [
+    "Cryptoactifs",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "fxsaplatform.com"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/fxsaplatform"
+  },
+  {
+   "slug": "profit-masters-invest",
+   "nom": "Profit Masters Invest",
+   "date_publication": "2026-10-22",
+   "categories": [
+    "Cryptoactifs",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "profitmastersgroup.com"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/profit-masters-invest"
+  },
+  {
+   "slug": "ascendex",
+   "nom": "AscendEX",
+   "date_publication": "2026-10-16",
+   "categories": [
+    "Cryptoactifs"
+   ],
+   "sites": [
+    "ascendex.com"
+   ],
+   "autres_noms": [
+    "BitMax (BMXDM Technology Pte. Ltd.)",
+    "AscendEX Technology S.R.L."
+   ],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/ascendex"
+  },
+  {
+   "slug": "thewealtthascend",
+   "nom": "TheWealtthAscend",
+   "date_publication": "2026-10-16",
+   "categories": [
+    "Cryptoactifs",
+    "Forex",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "thewealtthascend.com"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/thewealtthascend"
+  },
+  {
+   "slug": "aismartflow",
+   "nom": "AISmartFlow",
+   "date_publication": "2026-10-06",
+   "categories": [
+    "Cryptoactifs",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "aismartflow.io"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/aismartflow"
+  },
+  {
+   "slug": "nova-peak-bloom",
+   "nom": "Nova Peak Bloom",
+   "date_publication": "2026-10-06",
+   "categories": [
+    "Cryptoactifs",
+    "Forex",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "novapeakbloom.com"
+   ],
+   "autres_noms": [
+    "NovaPeakBloom",
+    "Grand Peak Trading Group LLP"
+   ],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/nova-peak-bloom"
+  },
+  {
+   "slug": "apex-elite-point-trade",
+   "nom": "Apex Elite Point Trade",
+   "date_publication": "2026-10-06",
+   "categories": [
+    "Cryptoactifs",
+    "Forex",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "apexelitepoint.com"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/apex-elite-point-trade"
+  },
+  {
+   "slug": "coelc",
+   "nom": "Coelc",
+   "date_publication": "2026-10-06",
+   "categories": [
+    "Cryptoactifs",
+    "Forex",
+    "Plateforme à haut risque"
+   ],
+   "sites": [
+    "coelc.com",
+    "coelc.net",
+    "coelcpro.com"
+   ],
+   "autres_noms": [],
+   "url": "https://lautorite.qc.ca/grand-public/salle-de-presse/mises-en-garde/fiche-mises-en-garde/coelc"
+  }
+ ]
+}

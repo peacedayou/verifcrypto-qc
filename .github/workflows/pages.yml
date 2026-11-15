@@ -1,0 +1,58 @@
+name: Données et démo (GitHub Pages)
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 9 * * 1"   # chaque lundi : nouvelle collecte des mises en garde de l'AMF
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Collecte complète des mises en garde de l'AMF
+        if: github.event_name != 'push'
+        run: python -m verifcrypto maj
+      - name: Tests sur les nouvelles données
+        if: github.event_name != 'push'
+        run: python -m unittest discover -s tests
+      - name: Enregistrer les données dans le dépôt
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/amf_mises_en_garde.json
+          git diff --cached --quiet || git commit -m "Données : mises en garde de l'AMF du $(date -u +%F)"
+          git push
+      - name: Assembler le site
+        run: |
+          mkdir -p _site
+          cp web/index.html web/verif.js _site/
+          cp data/amf_mises_en_garde.json _site/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

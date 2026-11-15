@@ -1,0 +1,35 @@
+{
+  "analyser": [
+    ["https://WWW.My.SpxGlobal.net/login?x=1", "site", "my.spxglobal.net"],
+    ["f24group.com", "site", "f24group.com"],
+    ["goldprideholdings.com,", "site", "goldprideholdings.com"],
+    ["0x52908400098527886E0F7030069857D2E4169EE7", "adresse_evm", "0x52908400098527886e0f7030069857d2e4169ee7"],
+    ["bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq", "adresse_btc", "bc1qar0srrr7xfkvy5l643lydnw9re59gtzzwf5mdq"],
+    ["1BoatSLRHtKNngkdXEeobR76b53LETtpyT", "adresse_btc", "1BoatSLRHtKNngkdXEeobR76b53LETtpyT"],
+    ["Gold Pride Holdings Ltée", "nom", "gold pride"],
+    ["Société Énergie Québec Inc.", "nom", "societe energie quebec"],
+    ["AscendEX (BitMax)", "nom", "ascendex"]
+  ],
+  "chercher": [
+    ["my.spxglobal.net", ["spx-global-future-holding-lp"]],
+    ["https://spxglobal.net", ["spx-global-future-holding-lp"]],
+    ["www.f24group.com", ["f24group"]],
+    ["coelcpro.com", ["coelc"]],
+    ["goldprideholdings.com", ["gold-pride-holdings"]],
+    ["lkyexch.com", ["lky"]],
+    ["GroupeF24", ["f24group"]],
+    ["Gold Pride", ["gold-pride-holdings"]],
+    ["Gold Pride Holdings Ltd", ["gold-pride-holdings"]],
+    ["AscendEX Technology S.R.L.", ["ascendex"]],
+    ["Nova Peak Blooms", ["nova-peak-bloom"]],
+    ["notf24group.com", []],
+    ["exemple.com", []],
+    ["Desjardins", []],
+    ["Ava", []]
+  ],
+  "recuperation": [
+    ["Crypto Recovery Services", true],
+    ["Service de récupération de fonds", true],
+    ["Goldman Markets", false]
+  ]
+}

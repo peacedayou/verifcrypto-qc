@@ -9,6 +9,17 @@ une inscription.
 
 **Démo :** https://peacedayou.github.io/verifcrypto-qc/
 
+## Ça vous intéresse ?
+
+**Pour qui :** Particuliers, conseillers et associations de consommateurs au Québec qui veulent vérifier un site ou une entreprise avant d'envoyer de l'argent.
+
+**Essayez la démo :** <https://peacedayou.github.io/verifcrypto-qc/>
+
+- ⭐ Ajoutez une étoile ou suivez le dépôt (**Watch**) pour être prévenu des nouvelles versions.
+- 📝 Dites-moi votre besoin : [ouvrez une fiche « Je suis intéressé »](https://github.com/peacedayou/verifcrypto-qc/issues/new?template=interet.yml).
+  Cela m'aide à choisir les prochaines fonctions. Aucune vente ni aucun engagement : c'est une simple liste d'intérêt.
+- 💬 Une question ou une idée ? Ouvrez une *issue* ; je réponds en français ou en anglais.
+
 ## Le principe : des faits sourcés, jamais de conseil
 
 - Chaque résultat cite sa **source**, son **lien** et sa **date** de publication.
